@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./virus-logo.svg" type="image/svg+xml" />
+  <title>COVID-19 Tracker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/transition.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/new-style.css">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.bootstrap.min.css">
+
+  <link rel="stylesheet" href="./css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+  <script src="./js/map-style.js"></script>
+  <script src="./js/script.js"></script>
+  <script src="./js/charts.js"></script>
+</head>
+
+<body>
+  <!-- <div id="preload">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1044.83 1047.51"><defs><style>.a{fill:#CC1034;}</style></defs><title>COVID-19</title><path class="a" d="M131.69,703.64C121,648.94,111,597.57,100.16,541.94L49.37,570.71v-65l54.26,32.18c2.71-24.23,3.75-43.75,7.31-62.8,4.57-24.48,9.77-49,17.39-72.69,5-15.46,0-22.36-13.76-21.82-20,.78-39.89,4.64-59.86,6.83-12.47,1.36-25,2.06-37.54,3.06,1.5-11.93,1-24.58,4.92-35.63,7.05-19.73,16-38.92,25.65-57.54,8.26-15.89,17.58-16,27.59-1,6.17,9.24,10.46,19.72,15.83,29.51,10.65,19.43,24.31,35.61,44.28,42.25l90.18-135.62-57.94-15.1L215,169.07l15.17,59.42,128.79-87.94c-5.31-20.29-22.56-33.66-41.89-45.11-10.16-6-21.25-10.59-31-17.22C273.68,69.76,273,59.45,287.53,53c26.33-11.74,53-22.82,80.11-32.67,13.73-5,20.48,3.35,17.84,16.66-2.68,13.47-8,26.4-11.69,39.69-5.58,20-7.5,39.92,2.28,56.43L535,101.36,504.61,51h66l-30.23,50.76L692.9,130.61c12.28-18.87,7.53-41.67,1.06-64.49-3.05-10.73-7.82-21.11-9.61-32-2-12.41,2-22.12,17.45-16.29,26.94,10.18,54.12,20,80.14,32.24,15.39,7.24,14.94,16.2.28,26.08-11.41,7.68-25.22,12.1-35.8,20.64-14.2,11.46-26.33,25.5-39,38.06L846,227.46l15.23-57.21,48.68,46.29L850,232.2,937.2,360.07c20.78-5.58,33.5-23.46,44.53-43.14,6.1-10.88,11.15-22.47,18.26-32.63s17-11.89,22.87,1c12.25,26.79,24.06,53.86,34.42,81.42,5.85,15.57-4.4,20.79-18,18.12-12.82-2.52-25.1-7.7-37.8-11-20.09-5.27-39.94-6-56.74,2.89,10.6,53.36,20.77,104.56,31.79,160.08L1026.46,507v65.4L976,542.67c-9.89,52.24-19,100.38-28.66,151.35,17.36,11.86,38.94,8.28,60.71,2.5,12-3.19,23.89-7.44,36.11-9.42,12.7-2.05,21.88,2.39,16.08,17.57-10,26.31-19.9,52.8-31.9,78.25-7.42,15.74-17.7,15.15-27.56-.19-6.37-9.91-9.75-22-17-31-12.33-15.39-26.66-29.18-40.06-43.55-32.4,48.34-61.81,92.19-93.8,139.91l58.3,15.05L864.5,907.68l-6.66-1.74c-1.32-9-2-18.23-4.16-27-2.27-9.18-6-18-9-26.52L718.19,938.49c6.14,19.47,21.54,33,40.22,43.48,10.89,6.1,22.77,10.61,33.09,17.5,13.91,9.3,13.87,19.18-1.17,26.34-25.43,12.09-51.6,22.84-78.07,32.46-14.94,5.43-22.41-2.17-19-18.3,3.13-14.73,10.14-28.81,12-43.61,2.14-16.93.5-34.33.5-51L540.09,978.17l30.66,49.67H504.8c11.1-18.14,20.62-33.69,30.79-50.29L383.69,949c-10.72,18-7.65,39.66-1.81,61.4,3.07,11.41,7.95,22.45,9.94,34,2.26,13.16-1.54,23.68-18.19,17.33-26.3-10-52.76-19.92-78.1-32.08-16.1-7.73-15.54-17.38-.09-27.29,11-7.09,24.16-11.27,34.29-19.33,14.42-11.48,27-25.33,40.21-38.08l-140-93.45c-4.49,16.44-9.33,34.14-15.77,57.73-16.93-17-30.68-30.71-47.53-47.58L226,846.51l-86.4-126.79c-20,5.71-33.57,22.58-44.61,42.35-6.39,11.45-12,23.48-19.46,34.14-6.79,9.63-16.45,10.1-21.57-1.44-12.51-28.12-24.47-56.55-35.1-85.43C14,696.07,24.78,693,34.72,694.66c12.19,2.07,24,6.44,36,10C92,710.94,113,712.42,131.69,703.64ZM405.31,389.48c-.17-32.14-25.47-58.13-56.93-58.48-32.23-.35-59.54,26.51-59.36,58.4.18,32.27,27.33,59,59.36,58.43S405.47,421.7,405.31,389.48ZM724.24,728.93c-28.19-.44-51.21,21.45-51.35,48.82a50.38,50.38,0,0,0,50,50.51,49,49,0,0,0,49.86-48C773.45,752,752,729.36,724.24,728.93ZM606.54,539.16c-.39-25.26-21.77-46.39-46.94-46.39-25.91,0-47,22.19-46.28,48.72.68,25.3,22.64,46.2,47.63,45.34C586.42,586,606.94,564.5,606.54,539.16Zm-93.35,297.5c.41-25-20.81-46.79-46-47.19s-46.67,20.58-47.13,46c-.45,24.79,21.38,47.25,45.95,47.27C491.53,882.72,512.77,862,513.19,836.66ZM474,206.94a40.28,40.28,0,0,0,39.17,40.95c21.05.44,40.43-18.56,40.7-39.9a39.91,39.91,0,0,0-39.61-40.46C491.76,167.15,474.33,184.21,474,206.94ZM857.16,410.7c19.12-.37,33.49-15.31,32.92-34.25-.53-18-16.92-33.72-34.76-33.26s-33.64,17.1-33.05,35C822.88,397,838,411.08,857.16,410.7ZM188.2,490c-18.59.42-32,14.44-31.46,32.85.55,17.69,15.72,32.4,33,32s32.38-16.39,31.73-33.45A32.36,32.36,0,0,0,188.2,490ZM861,575.44c-17.69-.08-30.62,12.51-31.24,30.42-.59,16.84,13.6,31,30.92,30.86,16.46-.14,30.19-13.17,30.79-29.24C892.05,591.21,877.13,575.52,861,575.44ZM289.88,750.6c-1.63-12.15-9.27-21.22-25-21.54-14.13-.29-27.18,12.3-25.82,26.1,1.46,14.7,9.82,24.08,25.48,24.49C279.31,780,290.4,768.29,289.88,750.6Zm97.41-144.86c-14.71,2.08-24.13,9.63-23.55,25.64s10,24,25.38,23.57c15.57-.41,24.32-9.72,23.91-25.14C412.61,614.22,402.94,606.54,387.29,605.74ZM757.57,498.13h-8.5c-5.67,8.1-14.9,15.69-16.16,24.42-1.81,12.63,8.79,20.77,21.12,20.58,12.76-.2,21.63-9.58,19.32-22C771.79,512.8,763.08,505.76,757.57,498.13Zm-97.4-159.87c.21-3.2.42-6.41.64-9.61-7.24-5.48-14.42-15.1-21.73-15.2-6.52-.08-16.79,9.24-19,16.37-3.35,11,3.78,21.68,16.39,20.63C644.67,349.76,652.3,342.55,660.17,338.26Z" transform="translate(-17.17 -16.1)"/></svg>
+  </div> -->
+  <div class="container-fluid main">
+    <div class="row">
+      <div class="col-12 col-md-8">
+        <div class="row header-container">
+          <div class="col-12 col-md-6 title-container" id="home">
+            <h1>C<img src="virus-logo.svg" alt="logo" height="40rem" width="40rem" class="mb-3" />VID-19 TRACKER</h1>
+          </div>
+          <div class="col-12 col-md-6 search-container" id="search-main">
+            <div class="ui fluid search selection dropdown" id="search">
+              <input type="hidden" name="country" />
+              <i class="dropdown icon"></i>
+              <div class="default text">Select Country</div>
+            </div>
+            <img src="./img/shield.png" data-toggle="modal" data-target="#centralModalSuccess" alt="Tips">
+          </div>
+        </div>
+        <div class="row map-container mt-3">
+          <div class="col">
+            <div id="map"></div>
+          </div>
+        </div>
+        <div class="row stats-container" id="stats">
+          <div class="col-12 col-md-4 mb-3">
+            <div class="card total-cases-card clickable active-card-cases" onclick="changeDataSelection('cases')">
+              <div class="row card-body">
+                <div class="col-4 cleft">
+                  <span class="cleft-1"><img src="./img/cases.png" alt=""></span>
+                </div>
+                <div class="col-8 cright">
+                  <h4 class="card-title"><strong>CASES</strong></h4>
+                  <h3 class="card-subtitle mb-2 total-number counter">0</h3>
+                  <div class="text-muted font-weight-bold total cases-total">Total: <span id="total_case"></span></div>
+                </div>
+                </h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <div class="card recovered-cases-card clickable" onclick="changeDataSelection('recovered')">
+              <div class="row card-body">
+                <div class="col-4 cleft">
+                  <span class="cleft-2"><img src="./img/remedy.png" alt=""></span>
+                </div>
+                <div class="col-8 cright">
+                  <h4 class="card-title"><strong>RECOVERED</strong></h4>
+                  <h3 class="card-subtitle mb-2 recovered-number counter">0</h3>
+                  <div class="text-muted font-weight-bold total recovered-total">Total: <span
+                      id="recovered_case"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <div class="card deaths-cases-card clickable" onclick="changeDataSelection('deaths')">
+              <div class="row card-body">
+                <div class="col-4 cleft">
+                  <span class="cleft-3"><img src="./img/death.png" alt=""></span>
+                </div>
+                <div class="col-8 cright">
+                  <h4 class="card-title"><strong>DEATHS</strong></h4>
+                  <h3 class="card-subtitle mb-2 deaths-number counter">0</h3>
+                  <div class="text-muted font-weight-bold total deaths-total">Total: <span id="deaths_case"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 side-panel-container my-3">
+        <div class="chart-container mt-3">
+          <div class="header-chart">
+            <h4>Total Cases <span id="country-name-graph">Worldwide</span></h4>
+            <h6><i>Updated as of <span id="timezone"></span></i></h6>
+          </div>
+
+          <div class="linear-chart p-3" id="graph-container-main">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="new-tab" data-toggle="tab" href="#newCases" role="tab" aria-controls="home" aria-selected="true">New</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="total-tab" data-toggle="tab" href="#totalCases" role="tab" aria-controls="profile" aria-selected="false">Total</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="newCases" role="tabpanel" aria-labelledby="new-tab">
+                <canvas id="myChartNew"></canvas>
+              </div>
+              <div class="tab-pane fade" id="totalCases" role="tabpanel" aria-labelledby="total-tab">
+                <canvas id="myChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cases-table-container">
+          <div class="news-header">
+            <h4>Top News <span id="country-name-news">Worldwide</span></h4>
+            <img src="./img/television.png" alt="">
+          </div>
+
+          <div class="news-data">
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-12 side-panel-container container-fluid p-5 table-responsive" id="table-container">
+      <div class="cases-table-container-2">
+        <div class="data-table-header">
+          <h4>Live Cases by Country</h4>
+          <img src="./img/coronavirus.png" alt="">
+        </div>
+
+        <div class="country-data">
+          <table id="example" class="table table-bordered nowrap" style="width:100%;">
+            <thead>
+              <tr>
+                <th scope="col">Location</th>
+                <th scope="col">Today cases</th>
+                <th scope="col">Total Cases</th>
+                <th scope="col">Deaths</th>
+                <th scope="col">Recovery</th>
+              </tr>
+            </thead>
+            <tbody id="table-data" class="white-table">
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="col">Location</th>
+                <th scope="col">Today cases</th>
+                <th scope="col">Total Cases</th>
+                <th scope="col">Deaths</th>
+                <th scope="col">Recovery</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-container" style="display:none;">
+    <nav>
+      <a href="#home"><span class="glyphicon glyphicon-home"></span></a>
+      <a href="#search-main" onclick="searchCountry();"><span class="glyphicon glyphicon-search"></span></a>
+      <a href="#map"><span class="glyphicon glyphicon-globe"></span></a>
+      <a href="#stats"><span class="glyphicon glyphicon-stats"></span></a>
+      <a href="#table-container"><span class="glyphicon glyphicon-th-list"></span></a>
+    </nav>
+  </div>
+
+
+  <!-- Central Modal Medium Success -->
+  <div class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-success" role="document">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <!--Body-->
+        <div class="modal-body">
+          <div class="text-center">
+            <h2>Protect yourself from COVID-19</h2>
+            <iframe src="https://www.youtube.com/embed/FC4soCjxSOQ" style="width: 100%; height: 350px;" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p><i>Video credits to: FreeMedEducation</i></p>
+          </div>
+        </div>
+
+        <!--Footer-->
+        <div class="modal-footer justify-content-center">
+          <a type="button" style="color: white;" class="btn btn-success" data-dismiss="modal">&times; Close</a>
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+  <!-- Central Modal Medium Success-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ7VvobsIYLr3Pe6cTNUnIUvzgpV2Na-o&callback=initMap
+    " async defer></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/transition.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/dataTables.semanticui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <!-- datatable bootstrap -->
+  <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.5/js/responsive.bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Add mdooth scrolling to all links
+      $("a").on('click', function (event) {
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "" && this.hash !== "#newCases" && this.hash !== "#totalCases") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+
+          // Store hash
+          var hash = this.hash;
+
+          // Using jQuery's animate() method to add mdooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function () {
+
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
+      });
+    });
+  </script>
+</body>
+
+</html>
