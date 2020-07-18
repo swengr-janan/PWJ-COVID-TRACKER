@@ -7,8 +7,8 @@ COVID-19 Tracker aims to provide comprehensive information with regards to the n
 ## Third party application used
 
 API:
-_https://disease.sh_
-_https://www.who.int/rss-feeds/news-english.xml_
+_https://disease.sh__
+_https://www.who.int/rss-feeds/news-english.xml__
 _https://api.smartable.ai/_
 
 VIDEO:
