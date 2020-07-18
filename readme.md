@@ -2,6 +2,9 @@
 
 COVID-19 Tracker aims to provide comprehensive information with regards to the number of confirmed cases around the world, together with the number of deaths and recoveries, thereof. It features a tracker that monitors the abovementioned data clusters (Cofirmed cases, Deaths, Recoveries).
 
+## LIVE PROJECT URL  
+https://statistics-covid.web.app/  
+
 ![](screenshot.jpg)
 
 ## Third party application used
