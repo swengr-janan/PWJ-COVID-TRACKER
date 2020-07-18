@@ -366,7 +366,7 @@ const getNews = (countryIso) => {
   } else {
     //38bd6037f3614f30a346dec8771d0e01
     fetch(
-      `https://api.smartable.ai/coronavirus/news/${countryIso}?Subscription-Key=`
+      `https://api.smartable.ai/coronavirus/news/${countryIso}?Subscription-Key=38bd6037f3614f30a346dec8771d0e01`
     )
       .then((response) => {
         return response.json();
@@ -411,7 +411,7 @@ const showNewsGlobal = (xmlDoc) => {
                               <p>${description[i].firstChild.nodeValue}</p>
                               </div>
                               <div>
-                              <p><i>(Click for more details)</i></p>
+                              <p style=><i>(Click for more details)</i></p>
                               </div>
                             </div><!-- post meta Ends /-->
                         </div><!-- Post Ends /-->
@@ -455,7 +455,7 @@ const showNewsLocal = (data) => {
       newsHtml += `
       
       <a class="news-link" href="${data.news[i].webUrl}">
-      <div class="our-recent-news module">
+      <div class="our-recent-news module" style="padding-bottom: 1rem;">
             <div class="row">
                   <div class="news-wrapper">         
                       <div class="medium-6 small-12 columns small-posts">
@@ -469,6 +469,7 @@ const showNewsLocal = (data) => {
                                 <div class="pub">Published: ${newPubDate}</div> 
                                 <div class="short-text">  
                                 <p>${data.news[i].excerpt}</p>
+                                <p><i>(Click for more details)</i></p>
                                 </div>
                               </div><!-- post meta Ends /-->
                           </div><!-- Post Ends /-->
