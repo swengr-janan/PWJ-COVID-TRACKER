@@ -191,7 +191,7 @@ body {
 }
 
 .chart-container {
-    height: auto;
+    height: 25vh;
     margin-left: 0;
     margin-right: 0;
 }
@@ -205,8 +205,7 @@ body {
 
 .cases-table-container {
     height: auto;
-    padding-top: 1rem;
-    border-top: #fff 1px solid;
+    padding-top: 2.5rem;
 }
 
 .data-table-header {
@@ -267,6 +266,7 @@ body {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    border-top: 1px white solid;
 }
 
 .news-header img {
@@ -322,7 +322,7 @@ body {
 }
 
 .stats-container {
-    padding-top: 1rem;
+    padding-top: 1.6rem;
     padding-bottom: 1rem;
 }
 
@@ -388,6 +388,7 @@ body {
 
 .side-panel-container {
     color: white !important;
+    height: 98vh;
 }
 
 .white-table {

@@ -106,27 +106,11 @@
       <div class="col-12 col-md-4 side-panel-container my-3">
         <div class="chart-container mt-3">
           <div class="header-chart">
-            <h4>Total Cases <span id="country-name-graph">Worldwide</span></h4>
+            <h4>Stats over time <span id="country-name-graph">Worldwide</span></h4>
             <h6><i>Updated as of <span id="timezone"></span></i></h6>
           </div>
-
           <div class="linear-chart p-3" id="graph-container-main">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="new-tab" data-toggle="tab" href="#newCases" role="tab" aria-controls="home" aria-selected="true">New</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="total-tab" data-toggle="tab" href="#totalCases" role="tab" aria-controls="profile" aria-selected="false">Total</a>
-              </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="newCases" role="tabpanel" aria-labelledby="new-tab">
-                <canvas id="myChartNew"></canvas>
-              </div>
-              <div class="tab-pane fade" id="totalCases" role="tabpanel" aria-labelledby="total-tab">
-                <canvas id="myChart"></canvas>
-              </div>
-            </div>
+            <canvas id="myChart"></canvas>
           </div>
         </div>
 
@@ -135,10 +119,7 @@
             <h4>Top News <span id="country-name-news">Worldwide</span></h4>
             <img src="./img/television.png" alt="">
           </div>
-
           <div class="news-data">
-
-
           </div>
         </div>
       </div>
@@ -264,6 +245,19 @@
             window.location.hash = hash;
           });
         } // End if
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $(".nav-tabs a").click(function () {
+        $(this).tab('show');
+      });
+      $('.nav-tabs a').on('shown.bs.tab', function (event) {
+        var x = $(event.target).text(); // active tab
+        var y = $(event.relatedTarget).text(); // previous tab
+        $(".act span").text(x);
+        $(".prev span").text(y);
       });
     });
   </script>

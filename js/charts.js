@@ -2,37 +2,59 @@ const buildChartData = (data) => {
   let chartDataCases = [];
   let chartDataRecovered = [];
   let chartDataDeaths = [];
+
   let chartObj = {};
+
+  let lastDataPoint_cases;
+  let lastDataPoint_recovered;
+  let lastDataPoint_deaths;
+
   for (let date in data.cases) {
-    let newDataPoint = {
-      x: date,
-      y: data.cases[date],
-    };
-    chartDataCases.push(newDataPoint);
+    if (lastDataPoint_cases) {
+      let newDataPoint_cases = {
+        x: date,
+        y: data.cases[date] - lastDataPoint_cases,
+      };
+      chartDataCases.push(newDataPoint_cases);
+    }
+    lastDataPoint_cases = data.cases[date];
   }
 
   for (let date in data.recovered) {
-    let newDataPoint = {
-      x: date,
-      y: data.recovered[date],
-    };
-    chartDataRecovered.push(newDataPoint);
+    if (lastDataPoint_recovered) {
+      let newDataPoint_recovered = {
+        x: date,
+        y: data.recovered[date] - lastDataPoint_recovered,
+      };
+
+      if (newDataPoint_recovered.y < 0) {
+        newDataPoint_recovered.y = 0;
+      }
+      chartDataRecovered.push(newDataPoint_recovered);
+    }
+    lastDataPoint_recovered = data.recovered[date];
   }
 
   for (let date in data.deaths) {
-    let newDataPoint = {
-      x: date,
-      y: data.deaths[date],
-    };
-    chartDataDeaths.push(newDataPoint);
-  }
+    if (lastDataPoint_deaths) {
+      let newDataPoint_deaths = {
+        x: date,
+        y: data.deaths[date] - lastDataPoint_deaths,
+      };
 
+      if (newDataPoint_deaths.y < 0) {
+        newDataPoint_deaths.y = 0;
+      }
+      chartDataDeaths.push(newDataPoint_deaths);
+    }
+    lastDataPoint_deaths = data.deaths[date];
+  }
 
   chartObj = {
     cases: chartDataCases,
     recovered: chartDataRecovered,
     deaths: chartDataDeaths,
-  }
+  };
   return chartObj;
 };
 
@@ -47,17 +69,17 @@ const buildChart = (chartData) => {
     data: {
       datasets: [
         {
-          label: "Total Cases",
+          label: "Cases",
           borderColor: "#db3d3d",
           data: chartData.cases,
         },
         {
-          label: "Total Recovered",
+          label: "Recovered",
           borderColor: "#308630",
           data: chartData.recovered,
         },
         {
-          label: "Total Deaths",
+          label: "Deaths",
           borderColor: "#0c0c0c",
           data: chartData.deaths,
         },

@@ -93,7 +93,7 @@ const getCountriesData = () => {
 
 const getCountryData = (countryIso) => {
   getNews(countryIso);
-  countryIso=="www" ? countryIso="" : countryIso;
+  countryIso == "www" ? (countryIso = "") : countryIso;
   const url = "https://disease.sh/v3/covid-19/countries/" + countryIso;
   fetch(url)
     .then((response) => {
@@ -106,8 +106,8 @@ const getCountryData = (countryIso) => {
 };
 
 const getWorldCoronaData = () => {
-  // $("#myChart").remove();
-  // $("#totalCases").append('<canvas id="myChart"><canvas>');
+  $("#myChart").remove();
+  $("#graph-container-main").append('<canvas id="myChart"><canvas>');
 
   fetch("https://disease.sh/v2/all")
     .then((response) => {
@@ -127,8 +127,8 @@ const getHistoricalData = (url, query) => {
     })
     .then((data) => {
       data.cases === undefined ? (data = data.timeline) : "";
-      // $("#myChart").remove();
-      // $("#totalCases").append('<canvas id="myChart"><canvas>');
+      $("#myChart").remove();
+      $("#graph-container-main").append('<canvas id="myChart"><canvas>');
       let chartData = buildChartData(data);
       buildChart(chartData);
     });
@@ -329,11 +329,11 @@ const getData = async (url) => {
 /* 7-11-20 */
 
 const findByCountry = (query) => {
-  query=="www" ? query="" : query;
+  query == "www" ? (query = "") : query;
   if (query) {
-    //Historical Chart Clear
-    // $("#myChart").remove();
-    // $("#totalCases").append('<canvas id="myChart"><canvas>');
+    // Historical Chart Clear
+    $("#myChart").remove();
+    $("#graph-container-main").append('<canvas id="myChart"><canvas>');
     getData(urlCountries + query);
     getHistoricalData(urlHistory, query);
   } else {
