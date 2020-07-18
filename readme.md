@@ -6,15 +6,15 @@ COVID-19 Tracker aims to provide comprehensive information with regards to the n
 
 ## Third party application used
 
-API:
+API:  
 _https://disease.sh_  
 _https://www.who.int/rss-feeds/news-english.xml_  
 _https://api.smartable.ai/_
 
-VIDEO:
+VIDEO:  
 _https://www.youtube.com/watch?v=FC4soCjxSOQ&t=3s_
 
-CHANNEL:
+CHANNEL:  
 _https://www.youtube.com/channel/UCTCEJCypL-cwp2EWlT5pmGg_
 
 ## Release History
