@@ -134,19 +134,19 @@ body {
   cursor: text;
 }
 
-.container input:focus ~ .search {
+.container input:focus~.search {
   right: -250px;
   background: #151515;
   z-index: 6;
 }
 
-.container input:focus ~ .search::before {
+.container input:focus~.search::before {
   top: 0;
   left: 0;
   width: 25px;
 }
 
-.container input:focus ~ .search::after {
+.container input:focus~.search::after {
   top: 0;
   left: 0;
   width: 25px;
@@ -179,6 +179,7 @@ body {
   height: 40px;
   width: 40px;
   pointer-events: all;
+  cursor: pointer;
 }
 
 .map-container {
