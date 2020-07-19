@@ -366,7 +366,7 @@ const getNews = (countryIso) => {
   } else {
     //38bd6037f3614f30a346dec8771d0e01
     fetch(
-      `https://api.smartable.ai/coronavirus/news/${countryIso}?Subscription-Key=38bd6037f3614f30a346dec8771d0e01`
+      `https://api.smartable.ai/coronavirus/news/${countryIso}?Subscription-Key=`
     )
       .then((response) => {
         return response.json();

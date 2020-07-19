@@ -134,19 +134,19 @@ body {
   cursor: text;
 }
 
-.container input:focus~.search {
+.container input:focus ~ .search {
   right: -250px;
   background: #151515;
   z-index: 6;
 }
 
-.container input:focus~.search::before {
+.container input:focus ~ .search::before {
   top: 0;
   left: 0;
   width: 25px;
 }
 
-.container input:focus~.search::after {
+.container input:focus ~ .search::after {
   top: 0;
   left: 0;
   width: 25px;
@@ -179,7 +179,6 @@ body {
   height: 40px;
   width: 40px;
   pointer-events: all;
-  cursor: pointer;
 }
 
 .map-container {
@@ -361,7 +360,7 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   background: #093e58;
 }
 
@@ -683,6 +682,7 @@ body {
   display: grid;
   align-content: center;
   text-align: center;
+  justify-content: center;
 }
 
 .cleft span {
@@ -690,10 +690,10 @@ body {
   color: #fff;
 }
 
-.cleft img {
+/* .cleft img {
   height: 50px;
   width: 50px;
-}
+} */
 
 .cright {
   text-align: center;
@@ -706,34 +706,37 @@ body {
 
 .cleft .cleft-1 {
   background-color: #db3d3d;
-  padding: 2rem;
+  padding: 10px;
   border-radius: 50%;
+  height: auto;
 }
 
 .cleft .cleft-1 img {
-  width: 100%;
+  width: 35px;
   height: auto;
 }
 
 .cleft .cleft-2 {
   background-color: #308630;
-  padding: 2rem;
+  padding: 10px;
   border-radius: 50%;
+  height: auto;
 }
 
 .cleft .cleft-2 img {
-  width: 100%;
+  width: 35px;
   height: auto;
 }
 
 .cleft .cleft-3 {
   background-color: #303030;
-  padding: 2rem;
+  padding: 10px;
   border-radius: 50%;
+  height: auto;
 }
 
 .cleft .cleft-3 img {
-  width: 100%;
+  width: 35px;
   height: auto;
 }
 
