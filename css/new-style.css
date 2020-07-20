@@ -324,7 +324,6 @@ body {
 
 .stats-container {
   padding-top: 1.6rem;
-  padding-bottom: 1rem;
 }
 
 .stats-container .card {
@@ -358,11 +357,20 @@ body {
 }
 
 .total-cases-card {
+  height: 13vh;
   position: relative;
   display: flex;
   justify-content: center;
   /* align-items: center; */
   background: #093e58;
+}
+
+.recovered-cases-card {
+  height: 13vh;
+}
+
+.deaths-cases-card {
+  height: 13vh;
 }
 
 .total-cases-card:hover {
@@ -713,8 +721,8 @@ body {
 }
 
 .cleft .cleft-1 img {
-  width: 35px;
-  height: auto;
+  width: 55px;
+  height: 55px;
 }
 
 .cleft .cleft-2 {
@@ -725,8 +733,8 @@ body {
 }
 
 .cleft .cleft-2 img {
-  width: 35px;
-  height: auto;
+  width: 55px;
+  height: 55px;
 }
 
 .cleft .cleft-3 {
@@ -737,8 +745,8 @@ body {
 }
 
 .cleft .cleft-3 img {
-  width: 35px;
-  height: auto;
+  width: 55px;
+  height: 55px;
 }
 
 .active-card-cases {
