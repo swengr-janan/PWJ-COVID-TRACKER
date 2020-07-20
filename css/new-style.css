@@ -134,19 +134,19 @@ body {
   cursor: text;
 }
 
-.container input:focus ~ .search {
+.container input:focus~.search {
   right: -250px;
   background: #151515;
   z-index: 6;
 }
 
-.container input:focus ~ .search::before {
+.container input:focus~.search::before {
   top: 0;
   left: 0;
   width: 25px;
 }
 
-.container input:focus ~ .search::after {
+.container input:focus~.search::after {
   top: 0;
   left: 0;
   width: 25px;
@@ -323,7 +323,7 @@ body {
 }
 
 .stats-container {
-  padding-top: 1.6rem;
+  padding-top: 3.6rem;
 }
 
 .stats-container .card {
@@ -354,23 +354,6 @@ body {
 
 .deaths-number {
   color: #1b1b1b;
-}
-
-.total-cases-card {
-  height: 13vh;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-  background: #093e58;
-}
-
-.recovered-cases-card {
-  height: 13vh;
-}
-
-.deaths-cases-card {
-  height: 13vh;
 }
 
 .total-cases-card:hover {
@@ -706,7 +689,6 @@ body {
 
 .cright {
   text-align: center;
-  border-left: 1px solid #c0c0c0;
 }
 
 .card-title {
