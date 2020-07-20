@@ -179,6 +179,7 @@ body {
   height: 40px;
   width: 40px;
   pointer-events: all;
+  cursor: pointer;
 }
 
 .map-container {
@@ -750,4 +751,49 @@ body {
 
 .active-card-deaths {
   background: linear-gradient(210deg, #030714, #00bcd4);
+}
+
+@media only screen and (min-width: 375px) and (max-width: 767px) {
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-height: 812px) {
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 812px) and (orientation: landscape) {
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 375px) and (orientation: portrait) {
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 }
